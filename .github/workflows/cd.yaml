@@ -2,7 +2,7 @@ name: Build & Deploy App Image
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   CD:
     name: Build & Deploy
@@ -45,6 +45,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            docker-compose down
-            docker-compose pull
-            docker-compose up -d backend
+            docker stop $(docker ps -a -q)
+            docker rm $(docker ps -a -q)
+            docker run -d -p 80:8000 ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}
