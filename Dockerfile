@@ -14,7 +14,6 @@ COPY pyproject.toml.poetry.lock ./
 
 RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
-
 # Stage 2
 FROM python:3.12.7-slim AS runtime
 
