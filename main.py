@@ -2,6 +2,7 @@ import csv
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
+
 def load_data():
     with open("./data/gyul.csv", "r") as f:
         reader = csv.DictReader(f, delimiter=",")
@@ -12,12 +13,14 @@ def load_data():
 
 gyul_stats = {}
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global gyul_stats
     gyul_stats = load_data()
 
     yield
+
 
 app = FastAPI(lifespan=lifespan)
 
