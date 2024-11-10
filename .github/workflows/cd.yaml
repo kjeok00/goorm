@@ -2,7 +2,7 @@ name: Build & Deploy App Image
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   CD:
     name: Build & Deploy
