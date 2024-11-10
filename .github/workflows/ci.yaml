@@ -2,7 +2,7 @@ name: flake8 Link
 
 on: [push, pull_request]
 
-jbos:
+jobs:
   flakes8-Init:
     runs-on: ubuntu-latest
     name: Lint
