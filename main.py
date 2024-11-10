@@ -11,6 +11,7 @@ def load_data():
         }
     return result
 
+
 gyul_stats = {}
 
 
@@ -18,7 +19,6 @@ gyul_stats = {}
 async def lifespan(app: FastAPI):
     global gyul_stats
     gyul_stats = load_data()
-
     yield
 
 
