@@ -18,12 +18,12 @@ RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 FROM python:3.12.7-slim AS runtime
 
 ENV VIRTUAL_ENV=/app/.venv \
-    PATH="app/.venv/bin:$PATH"
+    PATH="/app/.venv/bin:$PATH"
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY data ./data
 COPY main.py main.py
 
-ENTRYPOINT ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 EXPOSE 8000
