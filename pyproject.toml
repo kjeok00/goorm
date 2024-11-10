@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "goorm"
+version = "0.1.0"
+description = ""
+authors = ["김지혁 <kjeok00@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+uvicorn = "^0.32.0"
+fastapi = "^0.115.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
